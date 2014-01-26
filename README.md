@@ -5,3 +5,7 @@ pickfast
 ========
 
 An incredibly fast counter picker built on the dotapicks database
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jmaxxz/pickfast/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
