@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "grunt-cli": "*",
+    "grunt-coveralls": "*",
     "grunt-express-server": "*",
     "grunt-npm-install": "*",
     "grunt": "*",

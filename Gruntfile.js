@@ -43,7 +43,7 @@ module.exports = function(grunt) {
       }
     },
     coveralls: {
-      options: {
+      all: {
         src: 'bin/coverage/lcov.info'
       }
     },
@@ -59,5 +59,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.registerTask('default', ['jshint', 'jasmine', 'notify:success']);
-  grunt.registerTask('test', ['jshint', 'jasmine']);
+  grunt.registerTask('test', ['jshint', 'jasmine', 'coveralls:all']);
 };
