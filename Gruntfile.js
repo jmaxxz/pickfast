@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
-  var src = ['src/**/*.js'];
-  var specs = ['src/**/*Spec.js'];
-  var files = src.concat(specs);
+  var src = ['src/modules/**/*.js'];
+  var specs = ['src/Specs/**/*Spec.js'];
+  var files = ['Gruntfile.js'].concat(src).concat(specs);
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -28,8 +28,7 @@ module.exports = function(grunt) {
          src: src,
         options: {
             keepRunner: true,
-            specs: specs,
-            helpers: 'spec/*Helper.js'
+            specs: specs
           }
         }
     },
