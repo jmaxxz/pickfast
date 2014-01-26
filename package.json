@@ -18,5 +18,9 @@
     "cli":"*",
     "underscore": "*",
     "request": "*"
+  },
+
+  "scripts": {
+    "test": "grunt test --verbose"
   }
 }
