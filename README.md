@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jmaxxz/pickfast.png?branch=master)](https://travis-ci.org/jmaxxz/pickfast)
 pickfast
 ========
 
