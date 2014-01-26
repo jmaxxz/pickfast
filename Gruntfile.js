@@ -24,13 +24,28 @@ module.exports = function(grunt) {
       }
     },
     jasmine: {
-         pivotal: {
-         src: src,
-        options: {
-            keepRunner: true,
-            specs: specs
+      pivotal: {
+      src: src,
+      options: {
+          keepRunner: true,
+          specs: specs,
+          template: require('grunt-template-jasmine-istanbul'),
+          templateOptions: {
+            coverage: 'bin/coverage/coverage.json',
+            report: {
+              type:'lcov',
+              options: {
+                dir:'bin/coverage'
+              }
+            }
           }
         }
+      }
+    },
+    coveralls: {
+      options: {
+        src: 'bin/coverage/lcov.info'
+      }
     },
     watch: {
       files: files,
@@ -38,6 +53,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-coveralls');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
