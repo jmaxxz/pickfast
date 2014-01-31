@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
   var src = ['src/modules/**/*.js'];
+  var deps = ['node_modules/underscore/*-min.js'];
   var specs = ['src/Specs/**/*Spec.js'];
   var files = ['Gruntfile.js'].concat(src).concat(specs);
 
@@ -29,6 +30,7 @@ module.exports = function(grunt) {
       options: {
           keepRunner: true,
           specs: specs,
+          vendor: deps,
           template: require('grunt-template-jasmine-istanbul'),
           templateOptions: {
             coverage: 'bin/coverage/coverage.json',
