@@ -25,7 +25,6 @@ module.exports = function(grunt) {
       }
     },
     jasmine: {
-      pivotal: {
       src: src,
       options: {
           keepRunner: true,
@@ -34,15 +33,16 @@ module.exports = function(grunt) {
           template: require('grunt-template-jasmine-istanbul'),
           templateOptions: {
             coverage: 'bin/coverage/coverage.json',
-            report: {
+            report: [{
               type:'lcov',
               options: {
                 dir:'bin/coverage'
               }
-            }
+            },{
+              type: 'text'
+            }]
           }
         }
-      }
     },
     coveralls: {
       all: {
