@@ -15,5 +15,8 @@ npm-debug.log
 node_modules
 
 bin
+dist
+
 .grunt
 _SpecRunner.html
+.DS_Store
