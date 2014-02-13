@@ -13,7 +13,8 @@
     "grunt-contrib-watch": "*",
     "grunt-lib-phantomjs": "*",
     "grunt-notify": "*",
-    "grunt-template-jasmine-istanbul": "*"
+    "grunt-template-jasmine-istanbul": "*",
+    "grunt-contrib-less": "*"
   },
   "dependencies": {
     "express": "~3.4.4",

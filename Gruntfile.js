@@ -2,7 +2,14 @@ module.exports = function(grunt) {
   var src = ['src/modules/**/*.js'];
   var deps = ['node_modules/underscore/*-min.js'];
   var specs = ['src/Specs/**/*Spec.js'];
-  var files = ['Gruntfile.js'].concat(src).concat(specs);
+  var jsFiles = ['Gruntfile.js'].concat(src).concat(specs);
+  var lessFilesConfig = [{
+    expand: true,
+    cwd: 'src/content',
+    src: ['**/*.less'],
+    dest: 'dist/css',
+    ext: '.css'
+  }];
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -15,7 +22,7 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: files,
+      files: jsFiles,
       options: {
         // options here to override JSHint defaults
         globals: {
@@ -49,9 +56,26 @@ module.exports = function(grunt) {
         src: 'bin/coverage/lcov.info'
       }
     },
+    less: {
+      dev: {
+        files: lessFilesConfig
+      },
+      dist: {
+        options: {
+          cleancss: true
+        },
+        files: lessFilesConfig
+      }
+    },
     watch: {
-      files: files,
-      tasks: ['jshint', 'jasmine', 'notify:success']
+      scripts: {
+        files: jsFiles,
+        tasks: ['jshint', 'jasmine', 'notify:success']
+      },
+      content: {
+        files: ['src/content/**/*.less'],
+        tasks: ['less:dev', 'notify:success']
+      }
     }
   });
 
@@ -60,6 +84,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.registerTask('default', ['jshint', 'jasmine', 'notify:success']);
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.registerTask('default', ['jshint', 'jasmine', 'less:dev', 'notify:success']);
   grunt.registerTask('test', ['jshint', 'jasmine', 'coveralls:all']);
 };
