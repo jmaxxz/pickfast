@@ -15,7 +15,6 @@ window.dota.counterPicker = (function (){
 
       for (var j = team.length - 1; j >= 0; j--) {
         var tMem = team[j];
-        console.log(j);
         var winningness = currentHero.winningMatchups[tMem];
 
         if(winningness){
@@ -24,12 +23,12 @@ window.dota.counterPicker = (function (){
       }
 
       if(matchUpScore > 0){
-        matches.push(i);
+        matches.push({name:i, score:matchUpScore});
       }
 
     }
 
-    return matches;
+    return matches.sort(function(a, b){ return b.score - a.score; });
   }
 
   return {

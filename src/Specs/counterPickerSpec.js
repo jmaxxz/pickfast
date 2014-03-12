@@ -3,6 +3,11 @@ describe('counterPicker', function() {
   beforeEach(function(){
     oldHeros = window.dota.heros;
     window.dota.heros = {
+      'little rock':{
+        winningMatchups: {
+          'scissors': 1
+        }
+      },
       'rock':{
         winningMatchups: {
           'scissors': 3
@@ -29,8 +34,13 @@ describe('counterPicker', function() {
   describe('.counter', function(){
     it('picks rock to counter scissors',function (){
       var counters = cp.counter(['scissors']);
-      expect(counters[0]).toBe('rock');
-      expect(counters.length).toBe(1);
+      expect(counters[0].name).toBe('rock');
+      expect(counters.length).toBe(2);
+    });
+    it('Also lists a little rock as ok counter scissors',function (){
+      var counters = cp.counter(['scissors']);
+      expect(counters[1].name).toBe('little rock');
+      expect(counters.length).toBe(2);
     });
   });
 });
