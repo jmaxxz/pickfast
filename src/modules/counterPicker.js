@@ -1,0 +1,38 @@
+//require underscore
+
+window = window || {};
+window.dota =  window.dota || {};
+window.dota.counterPicker = (function (){
+
+  function counter(team) {
+    var heros = window.dota.heros;
+    var matches = [];
+    for (var i in heros) {
+      var currentHero = heros[i];
+      var matchUpScore  = 0;
+
+      if(team.indexOf(i) >= 0) continue;
+
+      for (var j = team.length - 1; j >= 0; j--) {
+        var tMem = team[j];
+        console.log(j);
+        var winningness = currentHero.winningMatchups[tMem];
+
+        if(winningness){
+          matchUpScore += winningness;
+        }
+      }
+
+      if(matchUpScore > 0){
+        matches.push(i);
+      }
+
+    }
+
+    return matches;
+  }
+
+  return {
+    counter:counter
+  };
+})();
