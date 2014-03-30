@@ -3,24 +3,24 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "grunt-cli": "*",
-    "grunt-coveralls": "*",
-    "grunt-express-server": "*",
-    "grunt-npm-install": "*",
-    "grunt": "*",
-    "grunt-contrib-jshint": "*",
+    "grunt-cli": "0.1.13",
+    "grunt-coveralls": "0.3.0",
+    "grunt-express-server": "0.4.11",
+    "grunt-npm-install": "0.1.0",
+    "grunt": "0.4.2",
+    "grunt-contrib-jshint": "0.8.0",
     "grunt-contrib-jasmine": "~0.5.2",
-    "grunt-contrib-watch": "*",
-    "grunt-lib-phantomjs": "*",
-    "grunt-notify": "*",
-    "grunt-template-jasmine-istanbul": "*",
-    "grunt-contrib-less": "*"
+    "grunt-contrib-watch": "0.5.3",
+    "grunt-lib-phantomjs": "0.5.0",
+    "grunt-notify": "0.2.17",
+    "grunt-template-jasmine-istanbul": "0.2.5",
+    "grunt-contrib-less": "0.11.0"
   },
   "dependencies": {
     "express": "~3.4.4",
-    "cli": "*",
+    "cli": "0.4.5",
     "underscore": "~1.5.2",
-    "request": "*"
+    "request": "2.33.0"
   },
   "scripts": {
     "test": "grunt test --verbose"
