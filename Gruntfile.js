@@ -76,9 +76,17 @@ module.exports = function(grunt) {
         files: ['src/content/**/*.less'],
         tasks: ['less:dev', 'notify:success']
       }
+    },
+    'compile-handlebars': {
+       allStatic: {
+        template: 'src/views/index.handlebars',
+        templateData: 'src/modules/heroes.json',
+        output: 'dst/index.html'
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-compile-handlebars');
   grunt.loadNpmTasks('grunt-coveralls');
   grunt.loadNpmTasks('grunt-notify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
@@ -87,4 +95,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.registerTask('default', ['jshint', 'jasmine', 'less:dev', 'notify:success']);
   grunt.registerTask('test', ['jshint', 'jasmine', 'coveralls:all']);
+  grunt.registerTask('compile', ['compile-handlebars'])
 };

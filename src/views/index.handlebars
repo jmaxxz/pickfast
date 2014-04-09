@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>Counter Picker</title>
+	</head>
+
+	<body>
+		<noscript>No way is this going to work without javascript</noscript>
+		<input name='search' type='text' placeholder='Search'>
+
+		<ul class='other-team'></ul>
+		<ul class='heros'>
+			<li class='axe'><div class='heroicon axe'></div></li>
+		</ul>
+
+		{{#each}}
+			{{this.name}}
+		{{/each}}
+
+	</body>
+</html>
